@@ -1,0 +1,24 @@
+{
+  "name": "qaj15_hw_tscoding_tasks",
+  "version": "1.0.0",
+  "description": "TS coding HWs",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karyna-kar/QAJ15_HW_TSCoding_tasks.git"
+  },
+  "author": "karyna.karmaza@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/karyna-kar/QAJ15_HW_TSCoding_tasks/issues"
+  },
+  "homepage": "https://github.com/karyna-kar/QAJ15_HW_TSCoding_tasks#readme",
+  "devDependencies": {
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}
