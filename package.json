@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/karyna-kar/QAJ15_HW_TSCoding_tasks#readme",
   "devDependencies": {
+    "prettier": "^3.8.1",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   }
