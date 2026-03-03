@@ -6,18 +6,15 @@ type CartItem = {
   quantity: number;
 };
 
-const calculateCartTotal = (cart : CartItem [] ) => {
+const calculateCartTotal = (cart: CartItem[]) => {
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
   return total;
-}
+};
 
 const cart = [
-  { name: "Хлеб", price: 3, quantity: 1 },
-  { name: "Молоко", price: 2, quantity: 2 },
-  { name: "Яйца", price: 4, quantity: 1 }
+  { name: 'Хлеб', price: 3, quantity: 1 },
+  { name: 'Молоко', price: 2, quantity: 2 },
+  { name: 'Яйца', price: 4, quantity: 1 }
 ];
 
 console.log(`TotalCartValue = ${calculateCartTotal(cart)}`);
-
-
-
