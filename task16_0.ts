@@ -10,9 +10,9 @@
 
 const validatePassword = (password: string) => {
   const regexPassword = /^(?=.*[A-Z])(?=.*\d)(?=.*[|^!@_$&*()\-+])[A-Za-z\d|^!@_$&*()\-+]{8,15}$/;
-  const regexDigits = /\d+/g;
+  const regexDigits = /\d/g;
   if (regexPassword.test(password)) {
-    const digitsArray = password.split('').filter(value => regexDigits.test(value));
+    const digitsArray = password.match(regexDigits);
     return { isValid: true, digits: digitsArray };
   }
   return { isValid: false };
