@@ -23,7 +23,7 @@ describe('Test add function', () => {
     expect(result).toEqual(1);
   });
 
-  test('one number',  () => {
+  test('one number', () => {
     const result = calc.add(6);
     expect(result).toEqual(6);
   });
@@ -49,7 +49,7 @@ describe('Test divide function', () => {
     const result = calc.divide(12, -3);
     expect(result).toEqual(-4);
   });
- 
+
   test('negative numbers', () => {
     const result = calc.divide(10, -2);
     expect(result).toEqual(-5);

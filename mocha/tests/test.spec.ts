@@ -1,11 +1,11 @@
-import {Calculator} from '../../task14_0.js';
+import { Calculator } from '../../task14_0.js';
 import { expect } from 'chai';
-  
+
 let calc: Calculator;
 
-beforeEach(()=>{
+beforeEach(() => {
   calc = new Calculator();
-})
+});
 
 describe('Test add function', () => {
   it('two positive numbers', () => {
