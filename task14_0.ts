@@ -1,6 +1,6 @@
 // 0. Реализовать класс калькулятор, с минимум следующими методами: сложение, вычитание, умножение, деление. Эта задача нам пригодится впоследствии
 
-class Calculator {
+export class Calculator {
   private checkInput(...numbers: number[]) {
     if (numbers.length === 0) {
       throw new Error('No values provided');
