@@ -1,11 +1,11 @@
-import {Calculator} from '../../task14_0.js';
+import { Calculator } from '../../task14_0.js';
 import { expect } from 'chai';
-  
+
 let calc: Calculator;
 
-beforeEach(()=>{
+beforeEach(() => {
   calc = new Calculator();
-})
+});
 
 describe('Test add function', () => {
   it('two positive numbers', () => {
@@ -71,7 +71,6 @@ describe('Test divide function', () => {
   });
 
   it('error when dividing by zero', () => {
-    const result = calc.divide(2, 0);
-    expect(result).to.throw(Error, 'Dividing by zero is forbidden');
+    expect(() => calc.divide(2, 0)).to.throw(Error, 'Dividing by zero is forbidden');
   });
 });

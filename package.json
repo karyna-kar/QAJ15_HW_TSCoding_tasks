@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "formatting": "npx prettier --write .",
-    "testmocha": "npx mocha --config ./mocha/configs/.mocharc"
+    "testmocha": "npx mocha --config ./mocha/configs/.mocharc",
+    "testjest": "npx jest --config ./jest/configs/jest.config.js"
   },
   "repository": {
     "type": "git",
@@ -20,14 +21,17 @@
   "homepage": "https://github.com/karyna-kar/QAJ15_HW_TSCoding_tasks#readme",
   "devDependencies": {
     "@types/chai": "^5.2.3",
+    "@types/jest": "^30.0.0",
     "@types/mocha": "^10.0.10",
     "@types/mochawesome": "^6.2.5",
     "@types/node": "^25.5.0",
     "chai": "^6.2.2",
+    "jest": "^30.3.0",
     "mocha": "^11.7.5",
     "mochawesome": "^7.1.4",
     "@types/node": "^25.4.0",
     "prettier": "^3.8.1",
+    "ts-jest": "^29.4.6",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   }
