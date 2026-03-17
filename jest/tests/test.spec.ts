@@ -66,7 +66,6 @@ describe('Test divide function', () => {
   });
 
   test('error when dividing by zero', () => {
-    const result = calc.divide(2, 0);
-    expect(result).toThrow('Dividing by zero is forbidden');
+    expect(()=>calc.divide(2, 0)).toThrow('Dividing by zero is forbidden');
   });
 });
