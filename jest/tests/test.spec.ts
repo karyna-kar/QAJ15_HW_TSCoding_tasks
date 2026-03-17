@@ -70,6 +70,6 @@ describe('Test divide function', () => {
   });
 
   test('error when dividing by zero', () => {
-    expect(()=>calc.divide(2, 0)).toThrow('Dividing by zero is forbidden');
+    expect(() => calc.divide(2, 0)).toThrow('Dividing by zero is forbidden');
   });
 });
