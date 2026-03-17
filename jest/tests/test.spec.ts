@@ -2,6 +2,10 @@ import { Calculator } from '../../task14_0';
 
 let calc = new Calculator();
 
+beforeEach(() => {
+  calc = new Calculator();
+});
+
 describe('Test add function', () => {
   test('two positive numbers', () => {
     const result = calc.add(2, 3);
