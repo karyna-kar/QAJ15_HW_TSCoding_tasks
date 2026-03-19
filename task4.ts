@@ -3,7 +3,7 @@
 const addText = (input = 'котик') => {
   const regexLatin = /^[A-Za-z]+$/;
   const regexCyrillic = /^[А-Яа-яЁё]+$/;
-  if (!regexCyrillic.test(input) || !regexCyrillic.test(input)) {
+  if (!regexCyrillic.test(input) && !regexCyrillic.test(input)) {
     throw new Error('Разрешены только латинские или кириллические буквы');
   }
 
@@ -16,8 +16,8 @@ const addText = (input = 'котик') => {
   }
 };
 
-console.log(addText('Karina'));
-console.log(addText('Карина'));
+//console.log(addText('Karina'));
+console.log(addText('карина'));
 console.log(addText(''));
 console.log(addText());
 console.log(addText('Karina45'));
