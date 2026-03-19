@@ -33,7 +33,8 @@ const prepareMessages = (users: User[]) => {
   const result: Result = {};
   for (const user of users) {
     if (user.username !== user.email) {
-      const preparedMessage = `Hello ${user.name} ${user.last_name}, please update your username "${user.username}" to be a valid email to comply with our new policy.`;
+      const fullName = user.last_name ? user.name + ' ' + user.last_name : user.name;
+      const preparedMessage = `Hello ${fullName}, please update your username "${user.username}" to be a valid email to comply with our new policy.`;
       result[user.username] = { email: user.email, message: preparedMessage };
     }
   }

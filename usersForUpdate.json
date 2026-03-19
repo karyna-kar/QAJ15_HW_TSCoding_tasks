@@ -2,7 +2,7 @@
   {
     "username": "jdoe",
     "name": "John",
-    "last_name": "Doe",
+    "last_name": null,
     "email": "jdoe@example.com"
   },
   {
