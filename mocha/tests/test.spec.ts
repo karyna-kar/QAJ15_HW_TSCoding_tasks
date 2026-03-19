@@ -1,4 +1,4 @@
-import { Calculator } from '../../task14_0.js';
+import { Calculator } from '../../task14_0';
 import { expect } from 'chai';
 
 let calc: Calculator;
