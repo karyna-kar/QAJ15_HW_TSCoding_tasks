@@ -12,7 +12,7 @@ const validatePassword = (password: string) => {
   const regexPassword = /^(?=.*[A-Z])(?=.*\d)(?=.*[|^!@_$&*()\-+])[A-Za-z\d|^!@_$&*()\-+]{8,15}$/;
   const regexDigits = /\d/g;
   if (regexPassword.test(password)) {
-    const digitsArray = password.match(regexDigits);
+    const digitsArray = password.match(regexDigits)?.map(Number);
     return { isValid: true, digits: digitsArray };
   }
   return { isValid: false };
