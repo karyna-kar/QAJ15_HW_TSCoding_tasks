@@ -6,7 +6,9 @@
   "type": "module",
   "scripts": {
     "formatting": "npx prettier --write .",
-    "testmocha": "npx mocha --config ./mocha/configs/.mocharc",
+    "testmocha": "mocha",
+    "test:cart": "mocha ./mocha/tests/test.spec.ts",
+    "test:API": "mocha ./mocha/tests/APItest.spec.ts --config ./mocha/configs/.mocharc",
     "testjest": "npx jest --config ./jest/configs/jest.config.js"
   },
   "repository": {
@@ -24,12 +26,12 @@
     "@types/jest": "^30.0.0",
     "@types/mocha": "^10.0.10",
     "@types/mochawesome": "^6.2.5",
-    "@types/node": "^25.5.0",
+    "@types/node": "^25.4.0",
     "chai": "^6.2.2",
+    "dotenv": "^17.4.1",
     "jest": "^30.3.0",
     "mocha": "^11.7.5",
     "mochawesome": "^7.1.4",
-    "@types/node": "^25.4.0",
     "prettier": "^3.8.1",
     "ts-jest": "^29.4.6",
     "tsx": "^4.21.0",

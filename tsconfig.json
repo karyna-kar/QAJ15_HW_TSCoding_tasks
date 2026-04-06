@@ -3,12 +3,14 @@
     "target": "es2020",
     "module": "esnext",
     "moduleResolution": "bundler",
+    "isolatedModules": true,
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "lib": ["ESNext", "dom"],
-    "rootDir": "./"
+    "rootDir": "./",
+    "types": ["node", "mocha"]
   },
   "ts-node": {
     "esm": true,
