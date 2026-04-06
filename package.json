@@ -8,7 +8,7 @@
     "formatting": "npx prettier --write .",
     "testmocha": "mocha",
     "test:cart": "mocha ./mocha/tests/test.spec.ts",
-    "test:API": "mocha ./mocha/tests/APItest.spec.ts",
+    "test:API": "mocha ./mocha/tests/APItest.spec.ts --config ./mocha/configs/.mocharc",
     "testjest": "npx jest --config ./jest/configs/jest.config.js"
   },
   "repository": {
