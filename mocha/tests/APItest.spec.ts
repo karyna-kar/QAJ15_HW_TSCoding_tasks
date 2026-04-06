@@ -9,7 +9,7 @@ describe('Test RESTful API', () => {
 
   describe('Test Get /objects', () => {
     describe('Test with empty list of objects', () => {
-      it.only('Get /objects: check that request returns empty list when there are no objects', async () => {
+      it('Get /objects: check that request returns empty list when there are no objects', async () => {
         response = await object.getObjects();
         expect(response.status).equal(200);
         expect(response.body.length).equal(0);
