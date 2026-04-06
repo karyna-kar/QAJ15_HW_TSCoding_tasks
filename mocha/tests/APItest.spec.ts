@@ -9,6 +9,12 @@ describe('Test RESTful API', () => {
 
   describe('Test Get /objects', () => {
     describe('Test with empty list of objects', () => {
+      before(async () => {
+        const responseForDeleting = await object.getObjects();
+        const requests = responseForDeleting.body.map((el: any) => object.deleteObjectById(el.id));
+        await Promise.all(requests);
+      });
+
       it('Get /objects: check that request returns empty list when there are no objects', async () => {
         response = await object.getObjects();
         expect(response.status).equal(200);
@@ -45,9 +51,8 @@ describe('Test RESTful API', () => {
       after(async () => {
         //deleting all existing objects
         const responseForDeleting = await object.getObjects();
-        for (const element of responseForDeleting.body) {
-          await object.deleteObjectById(element.id);
-        }
+        const requests = responseForDeleting.body.map((el: any) => object.deleteObjectById(el.id));
+        await Promise.all(requests);
       });
 
       it('Get /objects: check that request returns the list of objects equal created ones', async () => {
@@ -82,7 +87,9 @@ describe('Test RESTful API', () => {
     });
 
     after(async () => {
-      await object.deleteObjectById(response.body[0].id);
+      const responseForDeleting = await object.getObjects();
+      const requests = responseForDeleting.body.map((el: any) => object.deleteObjectById(el.id));
+      await Promise.all(requests);
     });
 
     it('GET /objects/{id}: check by existing id', async () => {
@@ -107,9 +114,8 @@ describe('Test RESTful API', () => {
     after(async () => {
       //deleting all existing objects
       const responseForDeleting = await object.getObjects();
-      for (const element of responseForDeleting.body) {
-        await object.deleteObjectById(element.id);
-      }
+      const requests = responseForDeleting.body.map((el: any) => object.deleteObjectById(el.id));
+      await Promise.all(requests);
     });
 
     it('POST /objects: create a new valid object', async () => {
@@ -174,9 +180,8 @@ describe('Test RESTful API', () => {
     after(async () => {
       //deleting all existing objects
       const responseForDeleting = await object.getObjects();
-      for (const element of responseForDeleting.body) {
-        await object.deleteObjectById(element.id);
-      }
+      const requests = responseForDeleting.body.map((el: any) => object.deleteObjectById(el.id));
+      await Promise.all(requests);
     });
 
     it('PUT /objects/{id}: check that existing object is fully updated', async () => {
@@ -237,9 +242,8 @@ describe('Test RESTful API', () => {
     after(async () => {
       //deleting all existing objects
       const responseForDeleting = await object.getObjects();
-      for (const element of responseForDeleting.body) {
-        await object.deleteObjectById(element.id);
-      }
+      const requests = responseForDeleting.body.map((el: any) => object.deleteObjectById(el.id));
+      await Promise.all(requests);
     });
 
     it('PATCH /objects/{id}: check that existing object is fully updated', async () => {
@@ -292,13 +296,18 @@ describe('Test RESTful API', () => {
     });
 
     after(async () => {
-      await object.deleteObjectById(response.body[0].id);
+      const responseForDeleting = await object.getObjects();
+      const requests = responseForDeleting.body.map((el: any) => object.deleteObjectById(el.id));
+      await Promise.all(requests);
     });
 
     it('DELETE /objects/{id}: check by existing id', async () => {
       const deleteID = createdIds[0];
       const responseDeleteObject = await object.deleteObjectById(deleteID);
       expect(responseDeleteObject.status).equal(200);
+      expect(responseDeleteObject.body).to.deep.equal({
+        message: `Object with id = ${deleteID} has been deleted.`
+      });
       const responseAfterDeletion = await object.getObjectById(deleteID);
       expect(responseAfterDeletion.status).equal(404);
     });
