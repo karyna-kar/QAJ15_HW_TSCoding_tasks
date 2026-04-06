@@ -1,8 +1,9 @@
 import type { PostObjectPayload } from './types';
+import 'dotenv/config';
 
 export class ObjectClient {
   private baseUrl = 'https://api.restful-api.dev/collections/products/objects';
-  private key = '';
+  private key = process.env.API_KEY as string;
 
   async getObjects(ids?: string[]) {
     const options = {
@@ -49,26 +50,7 @@ export class ObjectClient {
     };
   }
 
-  async createObject(objectPayload: PostObjectPayload) {
-    const options = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': this.key
-      },
-      body: JSON.stringify(objectPayload)
-    };
-
-    const response = await fetch(`${this.baseUrl}`, options);
-    const body = await response.json();
-
-    return {
-      status: response.status,
-      body
-    };
-  }
-
-  async createInvalidObject(objectPayload: {}) {
+  async createObject(objectPayload: PostObjectPayload | {}) {
     const options = {
       method: 'POST',
       headers: {

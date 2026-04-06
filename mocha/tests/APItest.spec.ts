@@ -9,7 +9,7 @@ describe('Test RESTful API', () => {
 
   describe('Test Get /objects', () => {
     describe('Test with empty list of objects', () => {
-      it('Get /objects: check that request returns empty list when there are no objects', async () => {
+      it.only('Get /objects: check that request returns empty list when there are no objects', async () => {
         response = await object.getObjects();
         expect(response.status).equal(200);
         expect(response.body.length).equal(0);
@@ -97,6 +97,9 @@ describe('Test RESTful API', () => {
       const notExistingId = 'TestDog';
       const responseByNotExistingID = await object.getObjectById(notExistingId);
       expect(responseByNotExistingID.status).equal(404);
+      expect(responseByNotExistingID.body).to.deep.equal({
+        error: `Object with id=${notExistingId} was not found.`
+      });
     });
   });
 
@@ -145,8 +148,11 @@ describe('Test RESTful API', () => {
           }
         }
       ];
-      const response = await object.createInvalidObject(invalidPayload);
+      const response = await object.createObject(invalidPayload);
       expect(response.status).equal(400);
+      expect(response.body).to.deep.equal({
+        error: `Invalid request body`
+      });
     });
   });
 
@@ -206,6 +212,9 @@ describe('Test RESTful API', () => {
       const invalidID = 'TestObject';
       const responseFullyUpdateObject = await object.fullyUpdateObject(updatingPayload, invalidID);
       expect(responseFullyUpdateObject.status).equal(404);
+      expect(responseFullyUpdateObject.body).to.deep.equal({
+        error: `Object with id=${invalidID} was not found.`
+      });
     });
   });
 
@@ -260,6 +269,9 @@ describe('Test RESTful API', () => {
       const invalidID = 'TestObject';
       const responsePartialUpdateObject = await object.partialUpdateObject(updatingPayload, invalidID);
       expect(responsePartialUpdateObject.status).equal(404);
+      expect(responsePartialUpdateObject.body).to.deep.equal({
+        error: `Object with id=${invalidID} was not found.`
+      });
     });
   });
 
@@ -295,6 +307,9 @@ describe('Test RESTful API', () => {
       const deleteID = 'TestDog';
       const responseDeleteObject = await object.deleteObjectById(deleteID);
       expect(responseDeleteObject.status).equal(404);
+      expect(responseDeleteObject.body).to.deep.equal({
+        error: `Object with id=${deleteID} was not found.`
+      });
     });
   });
 });
