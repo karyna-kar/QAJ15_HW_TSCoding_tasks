@@ -16,6 +16,6 @@ When('Player choose {string} and bot choose {string}', function (this: TestConte
   return (this.result = this.game.determineWinner(playerMove, botMove));
 });
 
-Then('Game result is {string}', function (this: TestContex, expectedResult: String) {
+Then('Game result is {string}', function (this: TestContex, expectedResult: string) {
   expect(this.result).to.equal(expectedResult);
 });
