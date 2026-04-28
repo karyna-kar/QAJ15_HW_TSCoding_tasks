@@ -1,34 +1,30 @@
 Feature: RockPaperScissors 
-    Scenario Outline: Player wins against bot
-      Given  There's a player 'Test'
+    Background: 
+    Given The game is started
+    
+    Scenario Outline: Games with winner
       When Player choose <PlayerChoise> and bot choose <BotChoise>
-      Then Game result is 'Test wins'
+      Then Game result is <GameResult>
 
-    Examples: 
-          |PlayerChoise |BotChoise  |
-          |'scissors'   |'paper'    |
-          |'rock'       |'scissors' |
-          |'paper'      |'rock'     |
-
-    Scenario Outline: Bot wins against player
-      Given  There's a player 'Test'
-      When Player choose <PlayerChoise> and bot choose <BotChoise>
-      Then Game result is 'bot wins'
-
-    Examples: 
-      |PlayerChoise |BotChoise  | 
-      |'paper'      |'scissors' |
-      |'scissors'   |'rock'     |
-      |'rock'       |'paper'    |
+      Examples: 
+      |PlayerChoise |BotChoise  | GameResult   |
+      |'paper'      |'scissors' |'bot wins'    |
+      |'scissors'   |'rock'     |'bot wins'    |
+      |'rock'       |'paper'    |'bot wins'    |
+      |'scissors'   |'paper'    |'player wins' |
+      |'rock'       |'scissors' |'player wins' |
+      |'paper'      |'rock'     |'player wins' |
 
     Scenario Outline: Draw
-      Given  There's a player 'Test'
       When Player choose <choise> and bot choose <choise>
       Then Game result is 'a draw'
 
-    Examples: 
+      Examples: 
       |choise     | 
       |'paper'    |
       |'scissors' |
       |'rock'     |
-    
+
+      Scenario: Vlidate random generator for bot
+        When Bot generate random move
+        Then The move is valid

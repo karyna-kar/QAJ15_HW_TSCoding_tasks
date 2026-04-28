@@ -8,8 +8,8 @@ type TestContex = {
   generatedMove: Move;
 };
 
-Given("There's a player {string}", function (name: string) {
-  return (this.game = new RockPaperScissors(name));
+Given('The game is started', function () {
+  return (this.game = new RockPaperScissors());
 });
 
 When('Player choose {string} and bot choose {string}', function (this: TestContex, playerMove: Move, botMove: Move) {
@@ -18,4 +18,12 @@ When('Player choose {string} and bot choose {string}', function (this: TestConte
 
 Then('Game result is {string}', function (this: TestContex, expectedResult: string) {
   expect(this.result).to.equal(expectedResult);
+});
+
+When('Bot generate random move', function (this: TestContex) {
+  return (this.generatedMove = this.game.generateMove());
+});
+
+Then('The move is valid', function (this: TestContex) {
+  expect(this.generatedMove).to.be.oneOf(this.game.moves);
 });
